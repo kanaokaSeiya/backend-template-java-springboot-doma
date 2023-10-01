@@ -1,10 +1,7 @@
 package com.example.doma.domain.todo;
 
 import lombok.Data;
-import org.seasar.doma.Entity;
-import org.seasar.doma.GeneratedValue;
-import org.seasar.doma.GenerationType;
-import org.seasar.doma.Id;
+import org.seasar.doma.*;
 
 import java.util.Date;
 
@@ -19,6 +16,9 @@ public class Todo {
   public int id;
 
   private String name;
+
+  @Version
+  private int version;
 
   private Date createTimestamp;
 

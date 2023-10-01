@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface TodoDao {
   @Select
-  List<Todo> findAll();
+  List<Todo> findBySearchName(String name);
 
   @Select
   Todo findByTodo(int id);
@@ -21,6 +21,6 @@ public interface TodoDao {
   @Insert
   int insert(Todo todo);
 
-  @Update
+  @Update()
   int update(Todo todo);
 }

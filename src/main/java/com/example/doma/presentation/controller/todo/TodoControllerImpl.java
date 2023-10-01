@@ -21,8 +21,8 @@ public class TodoControllerImpl implements TodoController {
 
   @Override
   @GetMapping("todos")
-  public TodosResponse getTodos() {
-    TodosDto list = todoUseCase.getTodos();
+  public TodosResponse getTodos(@RequestParam(name = "name", required = false) String name) {
+    TodosDto list = todoUseCase.getTodos(name);
     TodosResponse response = new TodosResponse(list);
     return response;
   }

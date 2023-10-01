@@ -19,8 +19,8 @@ public class TodoUseCaseImpl implements TodoUseCase {
   private final TodoDao todoDao;
 
   @Override
-  public TodosDto getTodos() {
-    List<Todo> list = todoDao.findAll();
+  public TodosDto getTodos(String name) {
+    List<Todo> list = todoDao.findBySearchName(name);
     TodosDto response = new TodosDto(list);
     return response;
   }
@@ -28,7 +28,7 @@ public class TodoUseCaseImpl implements TodoUseCase {
   @Override
   public TodoDto getTodo(int id) {
     Todo todo = todoDao.findByTodo(id);
-    TodoDto response = new TodoDto(todo.getId(), todo.getName(), todo.getCreateTimestamp(), todo.getUpdateTimestamp());
+    TodoDto response = new TodoDto(todo.getId(), todo.getName(), todo.getVersion(), todo.getCreateTimestamp(), todo.getUpdateTimestamp());
     return response;
   }
 
@@ -46,6 +46,7 @@ public class TodoUseCaseImpl implements TodoUseCase {
     Todo todo = new Todo();
     todo.setId(todoDto.getId());
     todo.setName(todoFormDto.name);
+    todo.setVersion(todoDto.getVersion());
     todo.setCreateTimestamp(todoDto.getCreateTimestamp());
     todo.setUpdateTimestamp(new Date());
     todoDao.update(todo);

@@ -5,7 +5,7 @@ import com.example.doma.application.dto.todo.TodosDto;
 import com.example.doma.application.formDto.todo.TodoFormDto;
 
 public interface TodoUseCase {
-  TodosDto getTodos();
+  TodosDto getTodos(String name);
 
   TodoDto getTodo(int id);
 

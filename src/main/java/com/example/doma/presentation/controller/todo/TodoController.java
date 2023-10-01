@@ -5,7 +5,7 @@ import com.example.doma.presentation.response.todo.TodoResponse;
 import com.example.doma.presentation.response.todo.TodosResponse;
 
 interface TodoController {
-  TodosResponse getTodos();
+  TodosResponse getTodos(String name);
 
   TodoResponse getTodo(int id);
 
